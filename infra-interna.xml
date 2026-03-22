@@ -1,0 +1,14 @@
+<network>
+  <name>network-internal</name>
+  <bridge name='virbr1' stp='on' delay='0'/>
+  <ip address='10.0.0.1' netmask='255.255.255.0'>
+  </ip>
+</network>
+
+<network>
+  <name>network-client</name>
+  <bridge name='virbr2' stp='on' delay='0'/>
+  <ip address='20.0.0.1' netmask='255.255.255.0'>
+  </ip>
+</network>
+
