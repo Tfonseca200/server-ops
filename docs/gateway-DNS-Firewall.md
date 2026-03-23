@@ -1,6 +1,6 @@
 # Gateway - DNS, Roteamento e Firewall
 
-Esta VM é o ponto central da infraestrutura, sendo responsável por controle de rede, resolução de nomes e intermediação de comunicação entre as redes.
+Este servidor (VM) é o ponto central da infraestrutura, sendo responsável por controle de rede, resolução de nomes com servidor DNS e intermediação de comunicação entre as redes.
 
 ---
 
@@ -24,40 +24,20 @@ Ele conecta a rede do host (`192.168.10.0/24`) com a rede interna (`10.10.0.0/24
 
 ---
 
-## ⚙️ Configuração do Bind
+## ⚙️ Serviço de DNS e configuração do Bind9
 
-### Arquivo: `/etc/bind/named.conf.options`
-# Gateway - DNS, Roteamento e Firewall
+O servidor DNS implementei utilizando o Bind9, sendo responsável pela resolução de nomes dentro da rede interna.
 
-Esta VM é o ponto central da infraestrutura, sendo responsável por controle de rede, resolução de nomes e intermediação de comunicação entre as redes.
+Foi definido o domínio: `thcompany.lan`
 
----
+Através dele, é possível acessar os servidores da infraestrutura utilizando nomes ao invés de endereços IP.
 
-## 📌 Responsabilidade do Servidor
-
-O gateway atua como:
-
-* Servidor DNS interno
-* Roteador entre redes
-* Ponto central de comunicação
-
-Ele conecta a rede do host (`192.168.10.0/24`) com a rede interna (`10.10.0.0/24`).
-
----
-
-## 🌐 DNS (Bind9)
-
-### Tecnologia utilizada
-
-* Bind9
-
----
-
-## ⚙️ Configuração do Bind
 
 ### Arquivo: `/etc/bind/named.conf.options`
 
 Responsável pelas configurações globais do servidor DNS.
+
+Nesta seção são definidos os forwarders, ou seja, os servidores DNS externos para os quais as requisições são encaminhadas quando o DNS interno não consegue resolver um domínio.
 
 ```conf
 options {
@@ -86,7 +66,9 @@ options {
 
 ### Arquivo: `/etc/bind/named.conf.local`
 
-Define as zonas DNS locais.
+Responsável por definir as zonas DNS locais gerenciadas pelo servidor.
+
+Neste caso, foi configurada uma zona do tipo master, onde o próprio servidor DNS é a autoridade principal pelo domínio:
 
 ```conf
 zone "thcompany.lan" {
@@ -99,7 +81,9 @@ zone "thcompany.lan" {
 
 ### Arquivo de Zona: `/var/cache/bind/db.thcompany.lan`
 
-Responsável pelos registros DNS internos.
+Responsável pelos registros DNS internos da infraestrutura.
+
+Neste arquivo é realizado o mapeamento entre nomes e endereços IP, permitindo a resolução de nomes dentro do domínio interno.
 
 ```dns
 $TTL 3600
@@ -132,6 +116,8 @@ web      IN     CNAME   www
 
 ### Verificar arquivos do Bind
 
+Comandos utilizados para validar a sintaxe dos arquivos de configuração do DNS, garantindo que não há erros antes de subir o serviço.
+
 ```bash
 cd /etc/bind
 named-checkconf
@@ -150,12 +136,20 @@ named-checkzone thcompany.lan db.thcompany.lan
 
 O serviço do Bind é gerenciado pelo systemd.
 
+Após alterações nos arquivos de configuração, é necessário reiniciar o serviço para que as mudanças sejam aplicadas.
+
+O serviço lê as configurações atualizadas, Aplica as alterações realizadas (zonas, registros, options) e reinicia o servidor DNS com as novas definições
+
 ```bash
 systemctl status bind9
 systemctl restart bind9
 ```
 
 ---
+
+Demotrações do laboratorio:
+
+
 
 ## 🔥 Firewall
 

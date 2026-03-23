@@ -1,6 +1,6 @@
-# server-ops
+# Projeto server-ops
 
-Projeto hands-on com foco em operações de infraestrutura e redes, contendo configurações de DNS interno, roteamento e serviços em servidores Linux. O ambiente foi construído utilizando Ubuntu Server, com gerenciamento de rede via Netplan e controle de serviços com systemd.
+Projeto hands-on com foco em operações de infraestrutura e redes, configurações de DNS interno, roteamento e serviços em servidores Linux. O ambiente foi construído utilizando Ubuntu Server, com gerenciamento de rede via Netplan e controle de serviços com systemd.
 
 O projeto simula um cenário real de infraestrutura segmentada em zona DMZ, com separação de responsabilidades entre servidores e controle centralizado através de um gateway.
 
@@ -10,12 +10,13 @@ O projeto simula um cenário real de infraestrutura segmentada em zona DMZ, com 
 
 O ambiente foi estruturado com foco em:
 
+* Zona DMZ
 * Separação de responsabilidades entre serviços
 * Isolamento de rede
 * Controle centralizado via gateway
 * Simulação de ambiente real de infraestrutura
 
-Esse projeto serve como base prática para estudos em:
+A idea do projeto é ter como prática em temas como:
 
 * Administração de sistemas Linux
 * Redes de computadores
@@ -30,12 +31,12 @@ Esse projeto serve como base prática para estudos em:
 server-ops/
 ├── services/           # Serviços executados nos servidores
 ├── .vagrant/           # Configurações do Vagrant / VMs
-├── backups/            # Backups de imagens de armazenamento das VMs
 ├── docs/               # Documentação detalhada dos servidores
 │   ├── gateway-DNS-Firewall/   # DNS (Bind9), roteamento e firewall
 │   └── server-web/             # Configuração do servidor web (nginx)
-├── README.md
-└── Vagrantfile         # Código de provisionamento das VMs (IaC)
+├── img                 # imagens de demostrações 
+├── README.md           # README do projeto
+└── Vagrantfile         # Código de provisionamento das VMs local (IaC)
 ```
 
 ---
@@ -52,7 +53,6 @@ server-ops/
   * Bind9 (servidor DNS)
 * Vagrant (provisionamento das VMs)
 * Libvirt (gerenciamento de virtualização)
-* QEMU (emulação de hardware)
 * KVM (virtualização acelerada)
 
 ---
@@ -73,7 +73,7 @@ O ambiente implementa os seguintes componentes de infraestrutura:
 
 ### Conceitos aplicados
 
-Os seguintes conceitos de redes foram utilizados na construção do ambiente:
+Os conceitos de redes que foram utilizados na construção do ambiente:
 
 * IP: definição de endereçamento das máquinas
 * Netmask: segmentação das redes
@@ -126,6 +126,9 @@ Responsável por centralizar toda a comunicação da infraestrutura.
 * Sistema: Ubuntu Server
 * RAM: 768 MB
 * CPU: 1 vCPU
+* IP Mascarada (NAT / WAN): `192.168.121.249/24`
+* IP rede cliente: `192.168.10.2/24`
+* IP rede interno: `10.10.0.2.24`
 
 #### Rede
 
@@ -150,6 +153,7 @@ Possui duas interfaces de rede:
 * Sistema: Ubuntu Server
 * RAM: 768 MB
 * CPU: 1 vCPU
+* IP rede cliente: `192.168.10.8/24`
 
 ---
 
@@ -160,6 +164,7 @@ Possui duas interfaces de rede:
 * Sistema: Ubuntu Server
 * RAM: 1024 MB
 * CPU: 1 vCPU
+* IP rede interno: `10.10.0.40/24`
 
 ---
 
@@ -170,6 +175,7 @@ Possui duas interfaces de rede:
 * Sistema: Ubuntu Server
 * RAM: 1536 MB
 * CPU: 1 vCPU
+IP rede interno: `10.10.0.20/24`
 
 ---
 
@@ -205,8 +211,8 @@ Esse diretório contém os discos das VMs e é crítico para persistência dos d
 
 ## 📚 Documentação dos Servidores
 
-* [Servidor gateway-DNS-Firewall](./docs/gateway-DNS-Firewall.txt)
-* [Servidor Web](./docs/server-web.txt)
+* [Servidor gateway-DNS-Firewall](./docs/gateway-DNS-Firewall.md)
+* [Servidor Web](./docs/server-web.md)
 
 ---
 
