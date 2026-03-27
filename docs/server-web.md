@@ -2,7 +2,6 @@
 
 Servidor responsável por disponibilizar o serviço web dentro da infraestrutura, sendo acessado via DNS interno através do domínio `www.thcompany.lan`.
 
----
 
 ## 📌 Responsabilidade do Servidor
 
@@ -13,17 +12,81 @@ O servidor web tem como função:
 * Trabalhar integrado com o DNS interno
 * Garantir acesso seguro via HTTPS
 
----
+
+## 🛠️  Sistema operacioal 
+
+* Ubuntu server 22.04 LTS
 
 ## 🌐 Tecnologia Utilizada
 
 * Nginx
 
----
+
+## Configuração de rede estático ( networking netplan static )
+
+Configuração estatica de rede do servidor web
+
+No diretorio /etc/netplan , realizo a configuração do arquivo `01-netcfg.yaml` contendo as informações de ip, rota e nameserve.
+
+Arquivo YAML:
+
+```bash 
+network:
+  version: 2
+  ethernets:
+   eth0:
+      dhcp4: no
+      optional: true
+
+   eth1:
+     addresses:
+       - 10.10.0.40/24
+     nameservers:
+       search: [thcompany.lan]
+       addresses: [192.168.10.2]
+     routes:
+       - to: default
+         via: 10.10.0.2
+```
+
+- IP: `10.10.0.40`
+- MASCARA: `/24`
+- INTERFACE: `eth1`
+- ROTA: `10.10.0.2`
+- NAMESERVER: `thcompany.lan`
+
+### Commando pra aplicar configuração
+
+Pra verificar indentação correta
+```bash
+sudo netplan generate
+```
+
+Pra aplicar configuração
+```bash
+sudo netplan apply
+```
+
+Com a configuração correta aplicada , garatimos a implementação correta do servidor dentro da organização de topologia de rede.
+
+
+## Instalando e startando servidor web
+
+### Intalando servidor web
+```bash
+sudo apt install nginx
+```
+
+### Startando servidor web e deixando start automático de servidor
+```bash
+sudo systemctl start nginx
+
+sudo systemctl autostart nginx
+```
 
 ## 🔐 Configuração de Certificado SSL
 
-Foi criado um certificado autoassinado para habilitar HTTPS no ambiente interno.
+FCriei um certificado autoassinado para habilitar HTTPS no ambiente interno.
 
 ### Diretório de certificados
 

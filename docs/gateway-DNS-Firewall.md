@@ -16,11 +16,77 @@ Ele conecta a rede do host (`192.168.10.0/24`) com a rede interna (`10.10.0.0/24
 
 ---
 
+## 🛠️  Sistema operacioal 
+
+* Ubuntu server 22.04 LTS
+
+
 ## 🌐 DNS (Bind9)
 
 ### Tecnologia utilizada
 
 * Bind9
+
+---
+
+## Configuração de rede estático ( networking netplan static )
+
+Configuração estatica de rede do servidor web
+
+No diretorio /etc/netplan , realizo a configuração do arquivo `01-netcfg.yaml` contendo as informações de ip, rota e nameserve.
+
+Arquivo YAML:
+
+```bash 
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: no
+      dhcp6: no
+      optional: true
+    eth1:
+      dhcp4: no
+      addresses:
+        - 192.168.10.2/24
+      routes:
+        - to: default
+          via: 192.168.10.1
+    eth2:
+      addresses:
+        - 10.10.0.2/24
+      nameservers:
+        search: [thcompany.lan]
+```
+- IP: `192.168.10.2`
+- MASCARA: `/24`
+- INTERFACE: `eth1`
+- ROTA: `192.168.10.1`
+
+<br>
+
+- IP: `10.10.0.2`
+- MASCARA: `/24`
+- INTERFACE: `eth2`
+
+<br>
+
+- NAMESERVER: `thcompany.lan`
+
+### Commando pra aplicar configuração
+
+Pra verificar indentação correta
+```bash
+sudo netplan generate
+```
+
+Pra aplicar configuração
+```bash
+sudo netplan apply
+```
+
+Com a configuração correta aplicada , garatimos a implementação correta do servidor dentro da organização de topologia de rede.
 
 ---
 
