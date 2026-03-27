@@ -123,9 +123,9 @@ Responsável por centralizar toda a comunicação da infraestrutura.
   * Roteamento entre redes
   * NAT (tradução de endereços)
   * DNS interno
-* Sistema: Ubuntu Server
-* RAM: 768 MB
-* CPU: 1 vCPU
+* Sistema operacional: Ubuntu Server
+* RAM: `768 MB`
+* CPU: `1 vCPU`
 * IP Mascarada (NAT / WAN): `192.168.121.249/24`
 * IP rede cliente: `192.168.10.2/24`
 * IP rede interno: `10.10.0.2.24`
@@ -150,9 +150,9 @@ Possui duas interfaces de rede:
 
 * Nome: vm-client
 * Função: Máquina cliente utilizada para acessar o servidor web via navegador
-* Sistema: Ubuntu Server
-* RAM: 768 MB
-* CPU: 1 vCPU
+* Sistema operacional: `Ubuntu Server`
+* RAM: `768 MB`
+* CPU: `1 vCPU`
 * IP rede cliente: `192.168.10.8/24`
 
 ---
@@ -161,9 +161,9 @@ Possui duas interfaces de rede:
 
 * Nome: server-web
 * Função: Hospedagem do serviço web
-* Sistema: Ubuntu Server
-* RAM: 1024 MB
-* CPU: 1 vCPU
+* Sistema operacional: `Ubuntu Server`
+* RAM: `1024 MB`
+* CPU: `1 vCPU`
 * IP rede interno: `10.10.0.40/24`
 
 ---
@@ -172,9 +172,9 @@ Possui duas interfaces de rede:
 
 * Nome: server-database
 * Função: Armazenamento de dados
-* Sistema: Ubuntu Server
-* RAM: 1536 MB
-* CPU: 1 vCPU
+* Sistema operacional: `Ubuntu Server`
+* RAM: `1536 MB`
+* CPU: `1 vCPU`
 IP rede interno: `10.10.0.20/24`
 
 ---

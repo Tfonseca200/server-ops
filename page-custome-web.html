@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to TH Company - Web Server</title>
+    <style>
+        :root {
+            --primary-color: #009688; /* Nginx Teal */
+            --secondary-color: #E95420; /* Ubuntu Orange */
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --card-bg: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 600px;
+            border-top: 5px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            border: 1px solid #c3e6cb;
+        }
+
+        p.lead {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .info-item {
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+
+        .info-item strong {
+            color: #34495e;
+            display: block;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TH <span>Company</span></div>
+        <div class="status-badge">✔ Service Operational</div>
+        
+        <h1>Welcome to Your Web Server</h1>
+        
+        <p class="lead">You have successfully configured and accessed the <strong>www.thcompany.lan</strong> web service through your custom gateway and DNS setup.</p>
+        
+        <div class="info-grid">
+            <div class="info-item">
+                <strong>Host Name:</strong>
+                server-web
+            </div>
+            <div class="info-item">
+                <strong>Internal Network:</strong>
+                10.10.0.0/24
+            </div>
+        </div>
+
+        <footer>
+            Vagrant + Libvirt Lab Environment | Handled with care by Nginx
+        </footer>
+    </div>
+</body>
+</html>

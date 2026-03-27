@@ -37,7 +37,7 @@ No diretorio /etc/netplan , realizo a configuração do arquivo `01-netcfg.yaml`
 
 Arquivo YAML:
 
-```bash 
+```yaml
 network:
   version: 2
   renderer: networkd
@@ -85,6 +85,14 @@ Pra aplicar configuração
 ```bash
 sudo netplan apply
 ```
+
+<br>
+
+![IP all](../img/fgateway/ip.png)
+
+<br>
+
+![Route](../img/fgateway/route.png)
 
 Com a configuração correta aplicada , garatimos a implementação correta do servidor dentro da organização de topologia de rede.
 
@@ -211,10 +219,33 @@ systemctl status bind9
 systemctl restart bind9
 ```
 
+<br>
+
+![Status serviço web ](../img/fgateway/status-servivo-dns.png)
+
 ---
 
-Demotrações do laboratorio:
+### 🧪 Demotrações do laboratorio:
 
+<br>
+
+![ping th](../img/fgateway/pingTh.png)
+
+<br>
+
+![ping web](../img/fgateway/pingWeb.png)
+
+<br>
+
+![ping db](../img/fgateway/pingDb.png)
+
+<br>
+
+![ping client](../img/fgateway/pingClient.png)
+
+<br>
+
+![traceroute de dns](../img/fgateway/tracerouteAll.png)
 
 
 ## 🔥 Firewall

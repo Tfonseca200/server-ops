@@ -30,7 +30,7 @@ No diretorio /etc/netplan , realizo a configuração do arquivo `01-netcfg.yaml`
 
 Arquivo YAML:
 
-```bash 
+```yaml
 network:
   version: 2
   ethernets:
@@ -67,6 +67,20 @@ Pra aplicar configuração
 sudo netplan apply
 ```
 
+<br>
+
+![IP all](../img/fweb/ip.png)
+
+<br>
+
+![Route](../img/fweb/route.png)
+
+### Testando roteamento do server gateway
+
+server-web -> server-gateway -> client
+
+![Route](../img/fweb/test-route.png)
+
 Com a configuração correta aplicada , garatimos a implementação correta do servidor dentro da organização de topologia de rede.
 
 
@@ -83,6 +97,9 @@ sudo systemctl start nginx
 
 sudo systemctl autostart nginx
 ```
+<br>
+
+![Status serviço web ](../img/fweb/status-servico-web.png)
 
 ## 🔐 Configuração de Certificado SSL
 
@@ -192,13 +209,23 @@ server {
 mkdir /var/www/www.thcompany.lan
 ```
 
-### Arquivo de teste
+### compiado estutura de arquivo existente pra teste
 
 ```bash
 cp /var/www/html/index.nginx-debian.html /var/www/www.thcompany.lan
 ```
 
----
+### Adicionando script html personalizado pro server web
+
+```bash
+vim /var/www/www.thcompany.lan 
+```
+
+### HTML adicionado:
+
+[Codigo HTML customer web](/page-custome-web.html)
+
+
 
 ## 🔗 Ativação do Site
 
@@ -225,6 +252,10 @@ systemctl restart nginx
 ```
 
 ---
+
+### Visualização de pagina web pelo navegador client
+
+![Page wev](../img/fweb/page-web.png)
 
 ## 📌 Observações
 
