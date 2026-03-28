@@ -4,9 +4,12 @@ Projeto hands-on com foco em operações de infraestrutura e redes, servidor DNS
 
 O projeto simula um cenário real de infraestrutura segmentada em zona DMZ, com separação de responsabilidades entre servidores e controle centralizado através de um gateway.
 
-Focando na separação por camadas (DMZ e Backend) e na entrega de conteúdo seguro ao cliente via HTTPS. 
+Focando na separação por camadas (DMZ e Backend) e na entrega de conteúdo seguro ao cliente via HTTPS.
 
----
+<p align="center">
+  <img src="../server-ops/img/server-ops.drawio.png" alt="topologia do projeto">
+</p>
+
 
 ## 🎯 Objetivo do Projeto
 
