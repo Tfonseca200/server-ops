@@ -7,7 +7,7 @@ O projeto simula um cenário real de infraestrutura segmentada em zona DMZ, com 
 Focando na separação por camadas (DMZ e Backend) e na entrega de conteúdo seguro ao cliente via HTTPS.
 
 <p align="center">
-  <img src="../server-ops/img/server-ops.drawio.png" alt="topologia do projeto">
+  <img src="../server-ops/img/server-ops.drawio.png" alt="topologia e arquitertura do projeto">
 </p>
 
 
