@@ -1,8 +1,10 @@
 # Projeto server-ops
 
-Projeto hands-on com foco em operações de infraestrutura e redes, configurações de DNS interno, roteamento e serviços em servidores Linux. O ambiente foi construído utilizando Ubuntu Server, com gerenciamento de rede via Netplan e controle de serviços com systemd.
+Projeto hands-on com foco em operações de infraestrutura e redes, servidor DNS e configurações de DNS interno, servidor web e certificado ssl pra trafego HTTPS, roteamento e serviços em servidores Linux. O ambiente foi construído utilizando Ubuntu Server, com gerenciamento de rede via Netplan e controle de serviços com systemd.
 
 O projeto simula um cenário real de infraestrutura segmentada em zona DMZ, com separação de responsabilidades entre servidores e controle centralizado através de um gateway.
+
+Focando na separação por camadas (DMZ e Backend) e na entrega de conteúdo seguro ao cliente via HTTPS. 
 
 ---
 

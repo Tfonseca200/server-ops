@@ -253,7 +253,7 @@ systemctl restart nginx
 
 ---
 
-### Visualização de pagina web pelo navegador client
+### Visualização de pagina web pelo navegador client (Url: `https://www.thcompany.lan`)
 
 ![Page wev](../img/fweb/page-web.png)
 
