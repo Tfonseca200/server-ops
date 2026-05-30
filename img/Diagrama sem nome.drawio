@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="4BvCFZMNRW9jHhfWI23w">
+    <mxGraphModel dx="1802" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="YcGAJsm5HjixaCPBrkQE-1" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;strokeColor=#00A4A6;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=1;" value="Region" vertex="1">
+          <mxGeometry height="290" width="490" x="80" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="YcGAJsm5HjixaCPBrkQE-2" parent="YcGAJsm5HjixaCPBrkQE-1" style="rounded=1;arcSize=10;dashed=1;strokeColor=#F59D56;fillColor=none;gradientColor=none;dashPattern=8 4;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="190" width="230" x="50" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YcGAJsm5HjixaCPBrkQE-3" parent="YcGAJsm5HjixaCPBrkQE-1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_ec2_instance_contents;strokeColor=#D86613;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#D86613;dashed=0;" value="EC2 instance contents" vertex="1">
+          <mxGeometry height="130" width="130" x="70" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="YcGAJsm5HjixaCPBrkQE-6" edge="1" parent="YcGAJsm5HjixaCPBrkQE-1" source="YcGAJsm5HjixaCPBrkQE-3" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="290" y="200" as="sourcePoint" />
+            <mxPoint x="-30" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YcGAJsm5HjixaCPBrkQE-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Internet&lt;div&gt;&amp;nbsp;Gateway&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="-70" y="680" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
